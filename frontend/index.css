@@ -1,0 +1,206 @@
+@font-face {
+  font-family: 'MN Op Choei Bold';
+  src: url('./fonts/MN-Op-Choei-Bold.ttf') format('truetype');
+}
+
+body {
+  font-family: 'MN Op Choei Bold', sans-serif;
+  background-color: #e9dacd;
+  margin: 0;
+}
+
+.navbar {
+  background-color: #9c7d5c;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px; 
+  padding: 10px;
+}
+
+.navbar a {
+  color: #ffebda;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+  color: #ffebda;
+  background-color: #b0977b;
+  border-radius: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  font-weight: bold; 
+}
+.circle-img-container {
+  width: 100px; 
+  height: 100px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 50%;
+}
+
+.text{
+  font-weight: bold; 
+  font-size: 20px;
+  color: #ffebda;
+  text-shadow: 4px 4px #a4927d;
+  text-align: center;
+}
+
+.header-form-input{
+  font-weight: bold;
+  font-size: 28px;
+  color: #ffebda;
+  text-align: center;
+  text-shadow: 4px 4px #a4927d;
+}
+
+.header {
+  font-size: 28px;
+  text-align: center;
+}
+
+.header-form {
+  font-weight: bold;
+  width: 200px;
+  display: flex;
+}
+
+
+.home {
+  text-decoration: none;
+  color: #a4927d;
+  transition: color 0.3s ease;
+  position: absolute;
+}
+
+.home::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #a4927d; 
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.home:hover {
+  color: #ffebda;
+}
+
+.home:hover::after {
+  transform: scaleX(1);
+}
+
+.logistic {
+  text-decoration: none;
+  color: #a4927d; 
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.logistic::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #a4927d;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.logistic:hover {
+  color: #ffebda; 
+}
+
+.logistic:hover::after {
+  transform: scaleX(1);
+}
+
+.flex {
+  display: flex;
+}
+
+.form-input {
+  margin-bottom: 10px;
+}
+
+.center {
+  text-align: center;
+}
+
+input.form,
+textarea {
+  border: #a4927d 3px solid;
+  width: 500px;
+  height: 40px;
+}
+
+.button {
+  font-family: 'MN Op Choei Bold', sans-serif;
+  border: 0;
+  width: 50%;
+  height: 40px;
+  background-color: #ffebda;
+  color: #9c7d5c;
+  font-size: 16px;
+}
+
+.message {
+  background-color: #ffebda;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: none;
+}
+
+.message.success {
+  background-color: lightgreen;
+  display: block;
+}
+
+.message.danger {
+  background-color: lightcoral;
+  display: block;
+}
+
+footer {
+  background-color: #9c7d5c;
+  color: #ffebda;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .flex {
+    flex-direction: column;
+  }
+  .header{
+    font-size: 24px;
+  }
+  .button {
+    width: 100%;
+  }
+}

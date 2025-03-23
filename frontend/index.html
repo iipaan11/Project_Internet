@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> ระบบจัดการการขนส่ง </title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" type="image/png" href="../images/logo.png">
+</head>
+
+<body>
+  <div class="navbar">
+    <img src="../images/logo.png" width="100" height="100">
+    <div class="nav-links">
+      <a href="logistic.html">ข้อมูลการขนส่ง</a>
+      <a href="index.html">จัดการการขนส่ง</a>
+    </div>
+  </div>
+  <br>
+  <div class="logo"></div>
+  <div class="container">
+    <div class="header-form-input">
+      ระบบจัดการการขนส่ง
+    </div>
+    <br>
+    <div class="text">ข้อมูลสินค้าและการจัดส่ง</div><br>
+    <div class="flex form-input">
+      <div class="header-form">รหัสสินค้า</div>
+      <input class="form" name="productid" type="text">
+    </div>
+    <div class="flex form-input">
+      <div class="header-form">สถานที่ต้นทาง-ปลายทาง</div>
+      <input class="form" name="origindestination" type="text">
+    </div>
+    <div class="flex deliverystatus form-input">
+      <div class="header-form">สถานะการจัดส่ง</div>
+      <div class="flex">
+        <div>
+          <div class="circle-img-container">
+            <img src="../images/2.png" alt="Your Logo" class="circle-img" width="200" height="100">
+          </div>
+          <input class="textttt" name="deliverystatus" type="radio" value="เข้ารับพัสดุแล้ว"> เข้ารับพัสดุแล้ว
+        </div>
+        <div>
+          <div class="circle-img-container">
+            <img src="../images/3.png" alt="Your Logo" class="circle-img" width="100" height="100">
+          </div>
+          <input class="textttt" name="deliverystatus" type="radio" value="อยู่ระหว่างขนส่ง"> อยู่ระหว่างขนส่ง
+        </div>
+        <div>
+          <div class="circle-img-container">
+            <img src="../images/4.png" alt="Your Logo" class="circle-img" width="100" height="100">
+          </div>
+          <input class="textttt" name="deliverystatus" type="radio" value="กำลังจัดส่งพัสดุ"> กำลังจัดส่งพัสดุ
+        </div>
+        <div>
+          <div class="circle-img-container">
+            <img src="../images/5.png" alt="Your Logo" class="circle-img" width="100" height="100">
+          </div>
+          <input class="textttt" name="deliverystatus" type="radio" value="พัสดุจัดส่งสำเร็จ"> พัสดุจัดส่งสำเร็จ
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="text">พื้นที่จัดเก็บสินค้า</div><br>
+    <div class="flex form-input">
+      <div class="header-form">พื้นที่ในคลัง</div>
+      <input class="form" name="warehousespace" type="text">
+    </div>
+    <div class="flex form-input">
+      <div class="header-form">การจัดเก็บสินค้า</div>
+      <input class="form" name="storagemethod" type="text">
+    </div>
+    <div class="flex form-input">
+      <div class="header-form">การจัดเรียงพื้นที่</div>
+      <input class="form" name="spacearrangement" type="text">
+    </div>
+    <br>
+    <div class="text">รายงานสถานะการจัดส่ง</div><br>
+    <div class="flex form-input">
+      <div class="header-form">การส่งถึงเวลา</div>
+      <input class="form" name="deliverytime" type="date">
+    </div>
+    <div class="flex form-input">
+      <div class="header-form">ปัญหาในการขนส่ง</div>
+      <input class="form" name="transportissues" type="text">
+    </div>
+    <div class="flex deliveryefficiency form-input">
+      <div class="header-form">ประสิทธิภาพของการจัดส่ง</div>
+      <div class="flex">
+        <div>
+          <input name="deliveryefficiency" type="radio" value="ดี"> ดี
+        </div>
+        <div>
+          <input name="deliveryefficiency" type="radio" value="ปานกลาง"> ปานกลาง
+        </div>
+        <div>
+          <input name="deliveryefficiency" type="radio" value="แย่"> แย่
+        </div>
+      </div>
+    </div>
+    <div id="message" class="message"></div>
+    <br>
+    <div class="center">
+      <button onclick="submitData()" class="button">ส่งข้อมูล</button>
+    </div>
+  </div>
+  <br>
+  <footer>
+    <div class="footer">
+      <div class="footer-text">© 2025 ระบบจัดการการขนส่ง</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>

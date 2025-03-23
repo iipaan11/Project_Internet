@@ -1,0 +1,160 @@
+@font-face {
+  font-family: 'MN Op Choei Bold';
+  src: url('./fonts/MN-Op-Choei-Bold.ttf') format('truetype');
+}
+
+body {
+  font-family: 'MN Op Choei Bold', sans-serif;
+  color: #9c7d5c;
+  background-color: #ffebda;
+  margin: 0;
+}
+
+.navbar {
+  background-color: #9c7d5c;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px; 
+  padding: 10px;
+}
+
+.navbar a {
+  color: #ffebda;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.row {
+  background-color: #9c7d5c;
+  padding: 30px;
+}
+
+button.edit-btn {
+  font-family: 'MN Op Choei Bold', sans-serif;
+  background-color: lightgreen; 
+  color: #9c7d5c; 
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button.edit-btn:hover {
+  background-color: rgb(74, 175, 74); 
+}
+
+button.delete-btn {
+  font-family: 'MN Op Choei Bold', sans-serif;
+  background-color: lightcoral; 
+  color: #ffebda; 
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button.delete-btn:hover {
+  background-color: rgb(188, 78, 78); 
+}
+
+table {
+    margin: auto; 
+    border-collapse: collapse;
+    width: 80%; 
+}
+
+th {
+    background-color: #9c7d5c;
+    color: #ffebda; 
+    padding: 10px; 
+    text-align: left; 
+    text-shadow: 2px 2px #a4927d;
+}
+
+td {
+    border: 1px solid #ffebda; 
+    padding: 10px; 
+    text-align: left; 
+}
+
+tr:nth-child(even) {
+    background-color: #cfbfb1; 
+}
+
+footer {
+  background-color: #9c7d5c;
+  color: #ffebda;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  bottom: 0;
+}
+
+#searchContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 20px auto;
+  width: 80%; 
+}
+
+#searchContainer input[type="text"],
+#searchContainer select {
+  font-family: 'MN Op Choei Bold', sans-serif;
+  font-size: 16px;
+  padding: 8px 12px;
+  border: 2px solid #9c7d5c;
+  border-radius: 5px;
+  background-color: #fffcf8;
+  color: #9c7d5c;
+}
+
+#searchContainer input[type="text"]::placeholder {
+  color: #a4927d;
+}
+
+#searchContainer button {
+  font-family: 'MN Op Choei Bold', sans-serif;
+  background-color: #9c7d5c;
+  color: #ffebda;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#searchContainer button:hover {
+  background-color: #a4927d;
+}
+
+@media screen and (max-width: 768px) {
+  .flex {
+    flex-direction: column;
+  }
+  .header{
+    font-size: 24px;
+  }
+  .button {
+    width: 100%;
+  }
+
+  #searchContainer {
+    flex-direction: column;
+  }
+
+  #searchContainer input,
+  #searchContainer select,
+  #searchContainer button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
