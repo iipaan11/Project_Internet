@@ -2,10 +2,9 @@ const BASE_URL = 'http://localhost:8000';
 
 window.onload = async () => {
     await loadData();
-}
+};
 
 window.addEventListener('load', () => {
-
     document.getElementById('searchBtn').addEventListener('click', async () => {
         const searchId = document.getElementById('searchId').value.trim().toLowerCase();
         const statusFilter = document.getElementById('statusFilter').value;
@@ -18,7 +17,7 @@ window.addEventListener('load', () => {
                 return matchId && matchStatus;
             });
 
-            renderFilteredData(filteredData);
+            renderFilteredData(filteredData); // ใช้ฟังก์ชันนี้ในการแสดงข้อมูลที่ค้นหา
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -26,41 +25,9 @@ window.addEventListener('load', () => {
 
     document.getElementById('searchId').addEventListener('input', (event) => {
         if (event.target.value === '') {
-            loadData();
+            loadData(); // ถ้าลบการค้นหา จะโหลดข้อมูลทั้งหมด
         }
     });
-
-    function renderFilteredData(data) {
-        const logisticTable = document.getElementById('logistic');
-        logisticTable.innerHTML = '';
-
-        for (let i = 0; i < data.length; i++) {
-            let logistic = data[i];
-            let row = `<tr>
-                            <td>${logistic.productid}</td>
-                            <td>${logistic.origindestination}</td>
-                            <td>${logistic.deliverystatus}</td>
-                            <td>
-                                <a href='index.html?id=${logistic.id}'><button>Edit</button></a>
-                                <button class ='delete' data-id='${logistic.id}'>Delete</button>
-                            </td>
-                       </tr>`;
-            logisticTable.innerHTML += row;
-        }
-
-        const deleteButtons = document.querySelectorAll('.delete');
-        deleteButtons.forEach(button => {
-            button.addEventListener('click', async (event) => {
-                const id = event.target.dataset.id;
-                try {
-                    await axios.delete(`${BASE_URL}/logistics/${id}`);
-                    loadData();
-                } catch (error) {
-                    console.log(error);
-                }
-            });
-        });
-    }
 });
 
 const loadData = async () => {
@@ -68,31 +35,34 @@ const loadData = async () => {
     const response = await axios.get(`${BASE_URL}/logistics`);
     console.log(response.data);
 
-    const logisticTable = document.getElementById('logistic');
+    renderFilteredData(response.data); // เรียกใช้ renderFilteredData โดยตรงในฟังก์ชัน loadData
+}
 
+function renderFilteredData(data) {
+    const logisticTable = document.getElementById('logistic');
     logisticTable.innerHTML = '';
 
-    for (let i = 0; i < response.data.length; i++) {
-        let logistic = response.data[i];
+    for (let i = 0; i < data.length; i++) {
+        let logistic = data[i];
         let row = `<tr>
                         <td>${logistic.productid}</td>
                         <td>${logistic.origindestination}</td>
                         <td>${logistic.deliverystatus}</td>
                         <td>
                             <a href='index.html?id=${logistic.id}'><button class='edit-btn'>Edit</button></a>
-                            <button class ='delete delete-btn' data-id='${logistic.id}'>Delete</button>
+                            <button class='delete-btn' data-id='${logistic.id}'>Delete</button>
                         </td>
                    </tr>`;
         logisticTable.innerHTML += row;
     }
 
-    const deleteButtons = document.querySelectorAll('.delete');
+    const deleteButtons = document.querySelectorAll('.delete-btn');
     deleteButtons.forEach(button => {
         button.addEventListener('click', async (event) => {
             const id = event.target.dataset.id;
             try {
                 await axios.delete(`${BASE_URL}/logistics/${id}`);
-                loadData();
+                loadData(); // เมื่อทำการลบแล้ว โหลดข้อมูลใหม่
             } catch (error) {
                 console.log(error);
             }

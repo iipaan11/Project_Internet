@@ -3,6 +3,15 @@ const BASE_URL = 'http://localhost:8000'
 let mode = 'CREATE'
 let selectedId = ''
 
+function formatDateToInputFormat(dateString) {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); 
+    const day = date.getDate().toString().padStart(2, '0');
+
+    return `${year}-${month}-${day}`; 
+}
+
 window.onload = async () => {
   const urlParams = new URLSearchParams(window.location.search)
   const id = urlParams.get('id')
@@ -28,8 +37,10 @@ window.onload = async () => {
       warehousespaceDOM.value = logistic.warehousespace
       storagemethodDOM.value = logistic.storagemethod
       spacearrangementDOM.value = logistic.spacearrangement
-      deliverytimeDOM.value = logistic.deliverytime
       transportissuesDOM.value = logistic.transportissues
+
+      let formattedDate = formatDateToInputFormat(logistic.deliverytime);
+      deliverytimeDOM.value = formattedDate; 
 
       let deliverystatusDOMs = document.querySelectorAll('input[name=deliverystatus]')
       let deliveryefficiencyDOMs = document.querySelectorAll('input[name=deliveryefficiency]')
@@ -51,6 +62,7 @@ window.onload = async () => {
     }
   }
 }
+
 const validateData = (logisticData) => {
     let errors = []
     if (!logisticData.productid){
@@ -90,7 +102,6 @@ const validateData = (logisticData) => {
   
     return errors
   }
-  
   
   const submitData = async () => {
     let productidDOM = document.querySelector('input[name=productid]')
@@ -158,7 +169,6 @@ const validateData = (logisticData) => {
       }
       htmlData += '</ul>'
       htmlData += '</div>'
-
 
       messageDOM.innerHTML = htmlData
       messageDOM.className = 'message danger'
