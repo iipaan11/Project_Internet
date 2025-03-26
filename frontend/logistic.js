@@ -17,7 +17,7 @@ window.addEventListener('load', () => {
                 return matchId && matchStatus;
             });
 
-            renderFilteredData(filteredData); // ใช้ฟังก์ชันนี้ในการแสดงข้อมูลที่ค้นหา
+            renderFilteredData(filteredData);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -25,7 +25,7 @@ window.addEventListener('load', () => {
 
     document.getElementById('searchId').addEventListener('input', (event) => {
         if (event.target.value === '') {
-            loadData(); // ถ้าลบการค้นหา จะโหลดข้อมูลทั้งหมด
+            loadData(); 
         }
     });
 });
@@ -35,7 +35,7 @@ const loadData = async () => {
     const response = await axios.get(`${BASE_URL}/logistics`);
     console.log(response.data);
 
-    renderFilteredData(response.data); // เรียกใช้ renderFilteredData โดยตรงในฟังก์ชัน loadData
+    renderFilteredData(response.data); 
 }
 
 function renderFilteredData(data) {
@@ -62,7 +62,7 @@ function renderFilteredData(data) {
             const id = event.target.dataset.id;
             try {
                 await axios.delete(`${BASE_URL}/logistics/${id}`);
-                loadData(); // เมื่อทำการลบแล้ว โหลดข้อมูลใหม่
+                loadData(); 
             } catch (error) {
                 console.log(error);
             }
